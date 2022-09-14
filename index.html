@@ -21,16 +21,53 @@
   });
 </script>
 <center>
-               
-            <h1>Fatos surpreendente curiosidades sobre o nosso mundo!</h1>
-     
-		            <p>Separamos uma lista de fatos aleatorios sobre o mundo para você! </p>
-	
-	<img src="th.jpg">
-	<h3>A palavra curiosidade tem origem no latim curiositas e significa “desejo de conhecer”. Sendo assim, é natural que esse desejo nos mova a sempre buscar novos fatos curiosos.
-
-Essa busca por conhecimento faz parte da natureza humana. Foi assim, por exemplo, que os humanos exploraram o ambiente, o uso de ferramentas e novas técnicas de sobrevivência. Ainda que a tecnologia e o conhecimento científico tenha avançado, isso não significa que o desejo por descobrir curiosidades diminuiu.
-
-Para satisfazer essa busca, separamos algumas curiosidades. São dezenas de fatos curiosos sobre o a vida, o universo e muito mais.</h3>
-                    
-</body>
+           
+	<div id = "digital-clock"> </div>
+	<script> 
+		function Time() {
+    // Creating object of the Date class
+    var date = new Date();
+    // Get current hour
+    var hour = date.getHours();
+    // Get current minute
+    var minute = date.getMinutes();
+    // Get current second
+    var second = date.getSeconds();
+    // Variable to store AM / PM
+    var period = "";
+    // Assigning AM / PM according to the current hour
+    if (hour >= 12) {
+    period = "PM";
+    } else {
+    period = "AM";
+    }
+    // Converting the hour in 12-hour format
+    if (hour == 0) {
+    hour = 12;
+    } else {
+    if (hour > 12) {
+    hour = hour - 12;
+    }
+    }
+    // Updating hour, minute, and second
+    // if they are less than 10
+    hour = update(hour);
+    minute = update(minute);
+    second = update(second);
+    // Adding time elements to the div
+    document.getElementById("digital-clock").innerText = hour + " : " + minute + " : " + second + " " + period;
+    // Set Timer to 1 sec (1000 ms)
+    setTimeout(Time, 1000);
+    }
+    // Function to update time elements if they are less than 10
+    // Append 0 before time elements if they are less than 10
+    function update(t) {
+    if (t < 10) {
+    return "0" + t;
+    }
+    else {
+    return t;
+    }
+    }
+    Time();
+	</script>
